@@ -2,3 +2,4 @@ build_linux/
 build_windows/
 CMakeFiles/
 lib/
+include/opencv2
