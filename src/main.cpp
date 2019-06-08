@@ -3,16 +3,16 @@
 #include <vector>
 #include <ostream>
 #include <string>
-#include "JLFileManager.h"
-#include "dirent.h"
+#include <JLFileManager.h>
+#include <JLTextureGen.h>
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
 	vector<string> imageFiles;
-	vector<string>::iterator it;
 	JLFileManager fileNamager;
+	JLTextureGen textureGen;
 
 	setlocale(LC_ALL, "");
 
@@ -20,10 +20,7 @@ int main(int argc, char *argv[])
 	{
 		if (fileNamager.getFiles(argv[1], imageFiles) > 0)
 		{
-			for (it = imageFiles.begin(); it < imageFiles.end(); it++)
-			{
-				cout << *it << endl;
-			}
+			textureGen.createTextureAtlas(imageFiles);
 		}
 	}
 	else {
