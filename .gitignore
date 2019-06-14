@@ -1,5 +1,6 @@
 build_linux/
 build_windows/
+3rd party/
 CMakeFiles/
 lib/
 include/opencv2
