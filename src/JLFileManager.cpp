@@ -28,7 +28,7 @@ int JLFileManager::getFiles(const char *dirName, vector<string> &imageFiles)
 	string fullPath;
 	int fileCount;
 
-	cout << "searching image file(s)... in " << dirName << endl;
+	cout << endl << "searching image file(s)... in " << dirName << endl;
 
 	fileCount = scandir(dirName, &files, NULL, alphasort);
 
@@ -45,7 +45,7 @@ int JLFileManager::getFiles(const char *dirName, vector<string> &imageFiles)
 					strstr(ent->d_name, ".jpeg") != NULL) 
 				{
 					fullPath = dirName;
-					fullPath.append("\\");
+					fullPath.append("/");
 					fullPath.append(ent->d_name);
 
 					imageFiles.push_back(fullPath);
@@ -64,7 +64,7 @@ int JLFileManager::getFiles(const char *dirName, vector<string> &imageFiles)
 		exit(EXIT_FAILURE);
 	}
 
-	cout << "found " << imageFiles.size() << " image files." << endl;
+	cout << endl << "found " << imageFiles.size() << " image file(s)." << endl;
 
 	return imageFiles.size();
 }

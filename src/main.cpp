@@ -16,15 +16,15 @@ int main(int argc, char *argv[])
 
 	setlocale(LC_ALL, "");
 
-	if (argc > 1)
+	if (argc > 2)
 	{
-		if (fileNamager.getFiles(argv[1], imageFiles) > 0)
+		if (fileNamager.getFiles(argv[2], imageFiles) > 0)
 		{
-			textureGen.createTextureAtlas(imageFiles);
+			textureGen.createTextureAtlas(argv[1], imageFiles);
 		}
 	}
 	else {
-		cout << "no input directory , atlasgen [directory name]" << endl;
+		cout << "no output image file name or directory name of the images , tagen [output file name] [directory name of the images]" << endl;
 	}
 
 	return 0;
